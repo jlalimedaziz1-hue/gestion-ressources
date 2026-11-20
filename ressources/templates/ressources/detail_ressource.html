@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail ressource</title>
+</head>
+<body>
+
+    <h1>{{ ressource.titre }}</h1>
+
+    <p>Description : {{ ressource.description }}</p>
+    <p>Type : {{ ressource.type_ressource }}</p>
+    <p>Catégorie : {{ ressource.categorie.nom }}</p>
+    <p>Date d'ajout : {{ ressource.date_ajout }}</p>
+
+    <p>
+        Lien :
+        <a href="{{ ressource.lien }}" target="_blank">
+            Consulter la ressource
+        </a>
+    </p>
+
+    <a href="{% url 'liste_ressources' %}">Retour à la liste</a>
+
+</body>
+</html>

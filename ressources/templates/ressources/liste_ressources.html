@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des ressources</title>
+</head>
+<body>
+
+    <h1>Liste des ressources</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <a href="{% url 'accueil' %}">Accueil</a>
+    <a href="{% url 'ajouter_ressource' %}">Ajouter une ressource</a>
+
+    <ul>
+        {% for ressource in ressources %}
+            <li>
+                <h3>{{ ressource.titre }}</h3>
+                <p>{{ ressource.description }}</p>
+                <p>Type : {{ ressource.type_ressource }}</p>
+                <p>Catégorie : {{ ressource.categorie.nom }}</p>
+
+                <a href="{% url 'detail_ressource' ressource.id %}">Détails</a>
+                <a href="{% url 'modifier_ressource' ressource.id %}">Modifier</a>
+                <a href="{% url 'supprimer_ressource' ressource.id %}">Supprimer</a>
+            </li>
+        {% empty %}
+            <li>Aucune ressource disponible.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

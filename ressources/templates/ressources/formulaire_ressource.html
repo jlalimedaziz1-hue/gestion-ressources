@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire ressource</title>
+</head>
+<body>
+
+    <h1>Ajouter ou modifier une ressource</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Enregistrer</button>
+    </form>
+
+    <a href="{% url 'liste_ressources' %}">Annuler</a>
+
+</body>
+</html>

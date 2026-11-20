@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ressources par catégorie</title>
+</head>
+<body>
+
+    <h1>Catégorie : {{ categorie.nom }}</h1>
+
+    <p>{{ categorie.description }}</p>
+
+    <h2>Ressources de cette catégorie</h2>
+
+    <ul>
+        {% for ressource in ressources %}
+            <li>
+                <a href="{% url 'detail_ressource' ressource.id %}">
+                    {{ ressource.titre }}
+                </a>
+                - {{ ressource.type_ressource }}
+            </li>
+        {% empty %}
+            <li>Aucune ressource dans cette catégorie.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'liste_categories' %}">Retour aux catégories</a>
+
+</body>
+</html>
